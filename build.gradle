@@ -13,6 +13,7 @@ def selenideVersion = "6.0.3",
 dependencies {
     testImplementation(
             "org.aspectj:aspectjweaver:1.9.7",
+            'org.seleniumhq.selenium:selenium-java:3.141.59',
             "com.codeborne:selenide:$selenideVersion",
             "org.aeonbits.owner:owner:1.0.12",
             "org.assertj:assertj-core:3.19.0",
