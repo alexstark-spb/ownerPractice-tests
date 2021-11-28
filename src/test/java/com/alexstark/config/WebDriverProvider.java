@@ -8,15 +8,16 @@ import java.util.function.Supplier;
 
 public class WebDriverProvider implements Supplier<WebDriver> {
 
-    private WebDriverConfig config;
+    private final SimpleWebDriverConfig CONFIG;
 
-    public WebDriverProvider(final WebDriverConfig config) {
-        this.config = config;
+    public WebDriverProvider(final SimpleWebDriverConfig CONFIG) {
+
+        this.CONFIG = CONFIG;
     }
 
     @Override
     public WebDriver get() {
-        if (config.getBrowser().equals(Browser.FIREFOX)) {
+        if (CONFIG.getBrowser().equals(Browser.FIREFOX)) {
             return new FirefoxDriver();
         }
         return new ChromeDriver();

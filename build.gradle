@@ -16,7 +16,7 @@ dependencies {
             'org.seleniumhq.selenium:selenium-java:3.141.59',
             "com.codeborne:selenide:$selenideVersion",
             "org.aeonbits.owner:owner:1.0.12",
-            "org.assertj:assertj-core:3.19.0",
+            "org.assertj:assertj-core:3.21.0",
             "org.junit.jupiter:junit-jupiter:$junitVersion")
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.32",
