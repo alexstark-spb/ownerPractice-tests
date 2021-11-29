@@ -22,6 +22,7 @@ public class TestBase {
             Configuration.browserCapabilities = capabilities;
             Configuration.browser = config.getBrowser();
             Configuration.browserVersion = config.getVersion();
+            Configuration.browserSize = config.getSize();
             if (config.isRemote()) {
                 String login = config.selenideLogin();
                 String password = config.selenidePassword();

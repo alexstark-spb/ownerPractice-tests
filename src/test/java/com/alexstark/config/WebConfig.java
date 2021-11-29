@@ -22,6 +22,9 @@ public interface WebConfig extends Config {
     @Key("driver.version")
     String getVersion();
 
+    @Key("driver.size")
+    String getSize();
+
     @Key("driver.url")
     String getRemoteUrl();
 
