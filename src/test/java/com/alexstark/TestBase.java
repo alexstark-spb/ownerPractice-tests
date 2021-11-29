@@ -1,14 +1,33 @@
 package com.alexstark;
 
+import com.alexstark.config.WebConfig;
+import com.codeborne.selenide.Configuration;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
 
-    public static final String BASE_URL = "https://github.com";
-
     @BeforeAll
     static void setupBeforeAll() {
-        System.setProperty("webdriver.chrome.driver", "C:/BrowserDrivers/chromedriver.exe");
-        System.setProperty("webdriver.gecko.driver", "C:/BrowserDrivers/geckodriver.exe");
+
+        if (System.getProperty("stage") != null) {
+            WebConfig config = ConfigFactory
+                    .create(WebConfig.class, System.getProperties());
+
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+
+            Configuration.browserCapabilities = capabilities;
+            Configuration.browser = config.getBrowser();
+            Configuration.browserVersion = config.getVersion();
+            if (config.isRemote()) {
+                String login = config.selenideLogin();
+                String password = config.selenidePassword();
+                String url = config.getRemoteUrl();
+                Configuration.remote = String.format("https://%s:%s@%s", login, password, url);
+            }
+        }
     }
 }
