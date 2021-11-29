@@ -5,11 +5,16 @@
 **Запуск теста через терминал:**
 
 * #### Локально [браузеры: Chrome или Firefox]
-> gradle clean test -Dstage=localChrome
->
-
-> gradle clean test -Dstage=localFirefox
+```b
+gradle clean test -Dstage=localChrome
+```
+```b
+gradle clean test -Dstage=localFirefox
+```
 * #### Удаленно на Selenoid [браузеры: Chrome или Firefox]
-> gradle clean test -Dstage=remoteChrome
-
-> gradle clean test -Dstage=remoteFirefox
+```b
+gradle clean test -Dstage=remoteChrome
+```
+```b
+gradle clean test -Dstage=remoteFirefox
+```
